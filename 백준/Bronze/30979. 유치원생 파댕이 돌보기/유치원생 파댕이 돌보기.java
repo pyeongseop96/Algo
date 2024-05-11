@@ -15,15 +15,12 @@ public class Main{
 			a -= sc.nextInt();
 		}
 		if(a<=0) {
-			System.out.println("Padaeng_i Happy");
-//			out.
-//			out.println("Padaeng_i Happy");
+			out.println("Padaeng_i Happy");
 		}
 		else {
-			System.out.println("Padaeng_i Cry");
-//			out.println("Padaeng_i Cry");
+			out.println("Padaeng_i Cry");
 		}
-		
+		out.close();
 	}
 	
 	static class FastScanner {
