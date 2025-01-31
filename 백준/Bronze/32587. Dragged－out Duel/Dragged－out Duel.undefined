@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+#define precision(x) cout << fixed; cout.precision(x);
+#define all(a) begin(a), end(a)
+//#define pi numbers::pi
+
+/* 보석함
+ * cout << (s.find("fgg") == string::npos) << endl;
+ * ceil, round, floor, sqrt, gcd, lcm
+ * multiset<string> ss;
+    cout << *s.rbegin() << endl;
+ * vector<int> c(n);
+    cout << max_element(c.begin(), c.end()) - c.begin()
+ * bitset<1000> s;
+ * stringstream ss(input);
+ * for (const auto& [key, val] : m)
+ */
+
+int main() {
+   ios::sync_with_stdio(false);
+   cin.tie(0);
+
+   int T; cin >> T;
+   string str1, str2; cin >> str1 >> str2;
+   int sum1 = 0, sum2 = 0;
+   for (int i = 0; i < str1.length(); i++) {
+      if (str1[i] != str2[i]) {
+         if ((str1[i]=='R'&&str2[i]=='P')||
+            (str1[i]=='P'&&str2[i]=='S')||
+            (str1[i]=='S'&&str2[i]=='R')) {
+            sum2++;
+         }
+         else {
+            sum1++;
+         }
+      }
+   }
+   if (sum1>sum2) {
+      cout << "victory";
+   }
+   else {
+      cout << "defeat";
+   }
+}
