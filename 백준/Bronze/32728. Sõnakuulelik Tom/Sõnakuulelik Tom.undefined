@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+#define precision(x) cout << fixed; cout.precision(x);
+#define all(a) begin(a), end(a)
+#define pi numbers::pi
+
+/* 보석함
+ * cout << (s.find("fgg") == string::npos) << endl;
+ * ceil, round, floor, sqrt, gcd, lcm
+ * multiset<string> ss;
+    cout << *s.rbegin() << endl;
+ * vector<int> c(n);
+    cout << max_element(c.begin(), c.end()) - c.begin()
+ * bitset<1000> s;
+ * stringstream ss(input);
+ * for (const auto& [key, val] : m)
+ */
+
+int main() {
+   //s r p
+   int a,b; cin>>a>>b;
+   string s; cin>>s;
+   string c1,c2,c3;
+   for (auto c : s) {
+      if (c=='s') {
+         if (c1.length()<b) {
+            c1 += "s";
+         }
+         else if (c2.length()<b) {
+            c2 += "s";
+         }
+         else {
+            c3 += "s";
+         }
+      }
+      else if (c=='r') {
+         if (c2.length()<b) {
+            c2 += "r";
+         }
+         else if (c3.length()<b) {
+            c3 += "r";
+         }
+         else {
+            c1 += "r";
+         }
+      }
+      else {
+         if (c3.length()<b) {
+            c3 += "p";
+         }
+         else if (c1.length()<b) {
+            c1 += "p";
+         }
+         else {
+            c2 += "p";
+         }
+      }
+   }
+   cout << c1 << endl << c2 << endl << c3 << endl;
+}
