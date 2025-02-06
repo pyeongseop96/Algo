@@ -26,8 +26,9 @@ int main() {
    ll a,b,c,d,e,f; cin>>a>>b>>c>>d>>e>>f;
    ll sum = 0;
    sum += (f-1)*(a*b);
-   sum += (e-1)*(b);
+   sum += (e-1)*(a);
    sum += d-1;
+   //cout<<sum<<endl;
    cout << (char)((sum%c) + 'a');
 }
 
