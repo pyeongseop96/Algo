@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+#define precision(x) cout << fixed; cout.precision(x);
+#define all(a) begin(a), end(a)
+//#define pi numbers::pi
+
+/* 보석함
+ * cout << (s.find("fgg") == string::npos) << endl;
+ * ceil, round, floor, sqrt, gcd, lcm
+ * multiset<string> ss;
+    cout << *s.rbegin() << endl;
+ * vector<int> c(n);
+    cout << max_element(c.begin(), c.end()) - c.begin()
+ * bitset<1000> s;
+ * stringstream ss(input);
+ * for (const auto& [key, val] : m)
+ */
+
+int main() {
+   ios::sync_with_stdio(false);
+   cin.tie(0);
+
+   ll a,b,c,d,e,f; cin>>a>>b>>c>>d>>e>>f;
+   ll sum = 0;
+   sum += (f-1)*(a*b);
+   sum += (e-1)*(b);
+   sum += d-1;
+   cout << (char)((sum%c) + 'a');
+}
+
