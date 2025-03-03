@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+#define precision(x) cout << fixed; cout.precision(x);
+#define all(a) begin(a), end(a)
+//#define pi numbers::pi
+
+/* 보석함
+ * cout << (s.find("fgg") == string::npos) << endl;
+ * ceil, round, floor, sqrt, gcd, lcm
+ * multiset<string> ss;
+    cout << *s.rbegin() << endl;
+ * vector<int> c(n);
+    cout << max_element(c.begin(), c.end()) - c.begin()
+ * bitset<1000> s;
+ * stringstream ss(input);
+ * for (const auto& [key, val] : m)
+ * priority_queue<int, vector<int>, greater<int>> pq;
+ */
+
+int main() {
+   ios::sync_with_stdio(false);
+   cin.tie(0);
+
+   int T; cin >> T;
+   while (T-->0) {
+      int N, M; cin >> N >> M;
+      vector<vector<char>> v(N+2, vector<char>(M+2));
+      for (int i = 1; i <= N; i++) {
+         string str; cin >> str;
+         for (int j = 1; j <= M; j++) {
+            v[i][j] = str[j - 1];
+         }
+      }
+      int ans = 0;
+      for (int i = 1; i <= N; i++) {
+         for (int j = 1; j <= M; j++) {
+            if (v[i][j-1] == '>'&&v[i][j] == 'o' && v[i][j+1] == '<') ans++;
+            if (v[i-1][j] == 'v'&&v[i][j] == 'o' && v[i+1][j] == '^') ans++;
+         }
+      }
+      cout << ans << '\n';
+   }
+}
+
