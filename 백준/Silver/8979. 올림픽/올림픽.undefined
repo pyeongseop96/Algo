@@ -1,31 +1,54 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <bits/stdc++.h>
 using namespace std;
 
+using ll = long long;
+
+#define precision(x) cout << fixed; cout.precision(x);
+#define all(a) begin(a), end(a)
+//#define pi numbers::pi
+
+/* 보석함
+ * cout << (s.find("fgg") == string::npos) << endl;
+ * ceil, round, floor, sqrt, gcd, lcm
+ * multiset<string> ss;
+    cout << *s.rbegin() << endl;
+ * vector<int> c(n);
+    cout << max_element(c.begin(), c.end()) - c.begin()
+ * bitset<1000> s;
+ * stringstream ss(input);
+ * for (const auto& [key, val] : m)
+ * priority_queue<int, vector<int>, greater<int>> pq;
+ * for (auto it = s.rbegin(); it != s.rend(); ++it) {
+    cout << *it << '\n';}
+ */
+
 int main()
 {
-    int N,M; cin >> N >> M;
-    int me = 0;
-    vector<int> v(N);
-    for(int i=0; i<N; i++){
-        int a,b,c,d; cin >> a >> b >> c >> d;
-        int score = b*100+c*10+d;
-        if(a==M) me = score;
-        v[i] = score;
-    }
-    sort(v.rbegin(), v.rend());
-    for(int i=0; i<N; i++){
-        if(v[i]==me){
-            cout << i+1;
-            break;
-        }
-    }
+    long long N,M; cin >> N >> M;
+    long long ans = 1;
+   vector<int> w(4);
+   vector<vector<int>> v(N, vector<int>(4));
+   for (int i = 0; i < N; i++) {
+      for (int j = 0; j < 4; j++) {
+         cin >> v[i][j];
+      }
+   }
+   for (int i = 0; i < N; i++) {
+      if (v[i][0] == M) {
+         w[0] == M;
+         w[1] = v[i][1];
+         w[2] = v[i][2];
+         w[3] = v[i][3];
+      }
+   }
+   for (int i = 0; i < N; i++) {
+      if (v[i][0] != M && (v[i][1] > w[1] ||
+         (v[i][1] == w[1] && v[i][2] > w[2]) ||
+         (v[i][1] == w[1] && v[i][2] == w[2] && v[i][3] > w[3]))) {
+         ans++;
+      }
+   }
+   cout << ans;
     return 0;
 }
+
