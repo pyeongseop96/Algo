@@ -1,0 +1,31 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int N,M; cin >> N >> M;
+    int me = 0;
+    vector<int> v(N);
+    for(int i=0; i<N; i++){
+        int a,b,c,d; cin >> a >> b >> c >> d;
+        int score = b*100+c*10+d;
+        if(a==M) me = score;
+        v[i] = score;
+    }
+    sort(v.rbegin(), v.rend());
+    for(int i=0; i<N; i++){
+        if(v[i]==me){
+            cout << i+1;
+            break;
+        }
+    }
+    return 0;
+}
