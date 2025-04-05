@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+#define precision(x) cout << fixed; cout.precision(x);
+#define all(a) begin(a), end(a)
+//#define pi numbers::pi
+
+/* 보석함
+ * cout << (s.find("fgg") == string::npos) << endl;
+ * ceil, round, floor, sqrt, gcd, lcm
+ * multiset<string> ss;
+    cout << *s.rbegin() << endl;
+ * vector<int> c(n);
+    cout << max_element(c.begin(), c.end()) - c.begin()
+ * bitset<1000> s;
+ * stringstream ss(input);
+ * for (const auto& [key, val] : m)
+ * priority_queue<int, vector<int>, greater<int>> pq;
+ * for (auto it = s.rbegin(); it != s.rend(); ++it) {
+    cout << *it << '\n';}
+ */
+
+int main()
+{
+   ios::sync_with_stdio(false);
+   cin.tie(0);
+   while (true) {
+      string s; cin >> s;
+      if (s=="end")break;
+      cout << "<" << s << "> is ";
+      bool b1 = false;
+      bool b2 = true;
+      bool b3 = true;
+      for (auto c : s) {
+         if (c=='a' || c=='e' || c=='i' || c=='o' || c=='u') b1 = true;
+      }
+      for (int i = 2; i < s.length(); i++) {
+         bool bb1 = false;
+         bool bb2 = false;
+         bool bb3 = false;
+         if (s[i-2]=='a'||s[i-2]=='e'||s[i-2]=='i'||s[i-2]=='o'||s[i-2]=='u')bb1 = true;
+         if (s[i-1]=='a'||s[i-1]=='e'||s[i-1]=='i'||s[i-1]=='o'||s[i-1]=='u')bb2 = true;
+         if (s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')bb3 = true;
+         if (bb1&&bb2&&bb3)b2=false;
+         if (!bb1&&!bb2&&!bb3)b2=false;
+      }
+      for (int i = 1; i < s.length(); i++) {
+         if (s[i]==s[i-1] && (s[i]!='e'&&s[i]!='o')) b3=false;
+      }
+      if (b1&&b2&&b3) cout <<"acceptable.\n";
+      else cout <<"not acceptable.\n";
+   }
+
+}
+
