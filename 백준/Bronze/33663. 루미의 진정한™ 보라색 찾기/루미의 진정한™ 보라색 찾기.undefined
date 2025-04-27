@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+#define precision(x) cout << fixed; cout.precision(x);
+#define all(a) begin(a), end(a)
+//#define pi numbers::pi
+
+/* 보석함
+ * cout << (s.find("fgg") == string::npos) << endl;
+ * ceil, round, floor, sqrt, gcd, lcm
+ * multiset<string> ss;
+    cout << *s.rbegin() << endl;
+ * vector<int> c(n);
+    cout << max_element(c.begin(), c.end()) - c.begin()
+ * bitset<1000> s;
+ * stringstream ss(input);
+ * for (const auto& [key, val] : m)
+ * priority_queue<int, vector<int>, greater<int>> pq;
+ * for (auto it = s.rbegin(); it != s.rend(); ++it) {
+    cout << *it << '\n';}
+ */
+
+int main()
+{
+   ios::sync_with_stdio(false);
+   cin.tie(0);
+   int h1,h2,s1,s2,v1,v2,r,g,b; cin >> h1>>h2>>s1>>s2>>v1>>v2>>r>>g>>b;
+   int mx = max({r,g,b});
+   int mn = min({r,g,b});
+   int v = mx;
+   double s= 255.0 * (v-mn) / v;
+   double h = 60.0*(g-b)/(v-mn);
+   if (v==r)int tmp = 123;
+   else if (v==g) {
+      h = 120.0 + 60.0*(b-r)/(v-mn);
+   }
+   else {
+      h = 240.0 + 60.0*(r-g)/(v-mn);
+   }
+   if (h<0) h += 360;
+   if (v>=v1 && v<=v2 && h>=h1 && h<=h2 && s>=s1 && s<=s2) cout << "Lumi will like it.";
+   else cout << "Lumi will not like it.";
+}
+
