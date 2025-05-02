@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+#define precision(x) cout << fixed; cout.precision(x);
+#define all(a) begin(a), end(a)
+//#define pi numbers::pi
+
+/* 보석함
+ * cout << (s.find("fgg") == string::npos) << endl;
+ * ceil, round, floor, sqrt, gcd, lcm
+ * multiset<string> ss;
+    cout << *s.rbegin() << endl;
+ * vector<int> c(n);
+    cout << max_element(c.begin(), c.end()) - c.begin()
+ * bitset<1000> s;
+ * stringstream ss(input);
+ * for (const auto& [key, val] : m)
+ * priority_queue<int, vector<int>, greater<int>> pq;
+ * for (auto it = s.rbegin(); it != s.rend(); ++it) {
+    cout << *it << '\n';}
+ */
+
+int main()
+{
+   ios::sync_with_stdio(false);
+   cin.tie(0);
+
+   int f1,c1,e1,b1,f2,c2,e2,b2,N;cin>>f1>>c1>>e1>>b1>>f2>>c2>>e2>>b2>>N;
+   int cookie = 0;
+   while(N--) {
+      int M,num; cin>>M>>num;
+      if (M==2) {
+         f1+=num;
+         cout << f1 << "\n";
+      }
+      else if (M==3) {
+         c1+=num;
+         cout << c1 << "\n";
+      }
+      else if (M==4) {
+         e1+=num;
+         cout << e1 << "\n";
+      }
+      else if (M==5) {
+         b1+=num;
+         cout << b1 << "\n";
+      }
+      else if (M==1) {
+         if (f1>=f2*num && c1>=c2*num && e1>=e2*num && b1>=b2*num) {
+            f1 -= f2*num;
+            c1 -= c2*num;
+            e1 -= e2*num;
+            b1 -= b2*num;
+            cookie += num;
+            cout << cookie << "\n";
+         }
+         else cout << "Hello, siumii\n";
+      }
+   }
+}
+
